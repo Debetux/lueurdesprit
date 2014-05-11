@@ -6,3 +6,14 @@ node_modules
 .npm-debug.log
 tmp
 bower_components
+
+.installed.cfg
+bin
+develop-eggs
+dist
+downloads
+eggs
+parts
+src/*.egg-info
+lib
+lib64
