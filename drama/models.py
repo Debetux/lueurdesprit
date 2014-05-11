@@ -1,13 +1,24 @@
 from django.db import models
 from django.db.models import permalink
 from django.utils import timezone
+from django.template.defaultfilters import slugify
 from django.contrib.auth.models import User
 import datetime
 
 class Play(models.Model):
     title = models.CharField(max_length=100, db_index=True)
-    slug = models.SlugField(max_length=100, db_index=True)
+    slug = models.SlugField(max_length=100, db_index=True, blank=True)
     description = models.TextField()
+
+    def save(self, *args, **kwargs):
+        if not self.id:
+            # Newly created object, so set slug
+            self.slug = slugify(self.title)
+
+        super(Play, self).save(*args, **kwargs)
+
+    def __str__(self):
+        return self.title
 
 class StaffReview(models.Model):
     title = models.CharField(max_length=100, unique=True)
@@ -18,6 +29,13 @@ class StaffReview(models.Model):
     pub_date = models.DateTimeField('date published')
     author = models.ForeignKey(User, limit_choices_to={'is_staff': True})
     play = models.ForeignKey(Play)
+
+    def save(self, *args, **kwargs):
+        if not self.id:
+            # Newly created object, so set slug
+            self.slug = slugify(self.title)
+
+        super(StaffReview, self).save(*args, **kwargs)
 
     def __str__(self):
         return self.title
