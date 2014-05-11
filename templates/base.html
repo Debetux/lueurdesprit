@@ -1,0 +1,262 @@
+{% load static %}
+<!doctype html>
+<html class="no-js" lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Lueur d'esprit</title>
+		<link rel="stylesheet" href="{% static "css/app.css" %}" />
+		<script src="{% static "modernizr.js" %} "></script>
+		<style type="text/css">
+		.lueur_esprit_wrapper{
+			background-color: #fafa84;
+		}
+
+		#margin_top{
+			margin-top: 35px;
+		}
+
+		#margin_bottom{
+			height: 1px;
+			margin-bottom: 35px;
+		}
+
+		.margin_equal{
+			margin: 10px 0;
+		}
+
+		#logo{
+			width: 520px;
+			text-align: center;
+			display: block;
+			margin:35px auto;
+		}
+
+		.first_border{
+			border-top: solid 1px black;
+			border-right: solid 1px black;
+			border-left: solid 1px black;
+			border-bottom: none;
+		}
+
+		.mid_border{
+			border-top: none;
+			border-right: solid 1px black;
+			border-left: solid 1px black;
+			border-bottom: none;
+			padding: 30px 0 0 0;
+		}
+
+		.last_border{
+			border-top: none;
+			border-right: solid 1px black;
+			border-left: solid 1px black;
+			border-bottom: solid 1px black;
+		}
+
+		.first_border nav.top-bar {
+			text-align:center;
+		}
+		.first_border section.top-bar-section {
+			display: inline-block;
+		}
+		.first_border .top-bar-section ul li > a {
+			width: 150px;
+		}
+
+		.shadow-box{
+			webkit-box-shadow: 0px 0px 10px 0px rgba(50, 50, 50, 0.50);
+			-moz-box-shadow:    0px 0px 10px 0px rgba(50, 50, 50, 0.50);
+			box-shadow:         0px 0px 10px 0px rgba(50, 50, 50, 0.50);
+		}
+
+	</style>
+	</head>
+	<body>
+	<div id="margin_top"></div>
+
+	<div class="row lueur_esprit_wrapper first_border">
+		<div class="large-12 columns">
+		<img src="{% static "img/logo.png" %}" id="logo">
+
+		<nav class="menu_top_bar top-bar" style="margin: 0 -15px 0 -15px;" data-topbar="">
+
+
+				
+			<section class="top-bar-section">
+
+					<!-- Left Nav Section -->
+					<ul class="left show-for-large-up">
+						<li><a href="#">Accueil</a></li>
+						<li class="has-dropdown not-click"><a href="#">Pièce de théâtre</a>
+
+							<ul class="dropdown"><li class="title back js-generated"><h5><a href="javascript:void(0)">Back</a></h5></li>
+								<li><label>Level One</label></li>
+								<li><a href="#">Sub-item 1</a></li>
+								<li><a href="#">Sub-item 2</a></li>
+								<li class="divider"></li>
+								<li><a href="#">Sub-item 3</a></li>
+								<li class="has-dropdown not-click"><a href="#">Sub-item 4</a>
+
+									<ul class="dropdown"><li class="title back js-generated"><h5><a href="javascript:void(0)">Back</a></h5></li>
+										<li><label>Level Two</label></li>
+										<li class="has-dropdown not-click"><a href="#">Sub-item 1</a>
+
+											<ul class="dropdown"><li class="title back js-generated"><h5><a href="javascript:void(0)">Back</a></h5></li>
+												<li><label>Level Three</label></li>
+												<li class="has-dropdown not-click"><a href="#">Sub-item 1</a>
+
+													<ul class="dropdown"><li class="title back js-generated"><h5><a href="javascript:void(0)">Back</a></h5></li>
+														<li><label>Level Four</label></li>
+														<li><a href="#">Sub-item 1</a></li>
+													</ul>
+												</li>
+												<li><a href="#">Sub-item 2</a></li>
+												<li><a href="#">Sub-item 3</a></li>
+												<li class="divider"></li>
+												<li><a href="#">Sub-item 4</a></li>
+											</ul>
+										</li>
+										<li><a href="#">Sub-item 2</a></li>
+										<li><a href="#">Sub-item 3</a></li>
+										<li><a href="#">Sub-item 4</a>
+									</li></ul>
+								</li>
+								<li><a href="#">Sub-item 5</a></li>
+							</ul>
+						</li>
+						<li class="has-dropdown not-click"><a href="#">Cinéma</a>
+
+							<ul class="dropdown"><li class="title back js-generated"><h5><a href="javascript:void(0)">Back</a></h5></li>
+								<li><label>Level One</label></li>
+								<li><a href="#">Sub-item 1</a></li>
+								<li><a href="#">Sub-item 2</a></li>
+								<li class="divider"></li>
+								<li><a href="#">Sub-item 3</a></li>
+								<li class="has-dropdown not-click"><a href="#">Sub-item 4</a>
+
+									<ul class="dropdown"><li class="title back js-generated"><h5><a href="javascript:void(0)">Back</a></h5></li>
+										<li><label>Level Two</label></li>
+										<li class="has-dropdown not-click"><a href="#">Sub-item 1</a>
+
+											<ul class="dropdown"><li class="title back js-generated"><h5><a href="javascript:void(0)">Back</a></h5></li>
+												<li><label>Level Three</label></li>
+												<li class="has-dropdown not-click"><a href="#">Sub-item 1</a>
+
+													<ul class="dropdown"><li class="title back js-generated"><h5><a href="javascript:void(0)">Back</a></h5></li>
+														<li><label>Level Four</label></li>
+														<li><a href="#">Sub-item 1</a></li>
+													</ul>
+												</li>
+												<li><a href="#">Sub-item 2</a></li>
+												<li><a href="#">Sub-item 3</a></li>
+												<li class="divider"></li>
+												<li><a href="#">Sub-item 4</a></li>
+											</ul>
+										</li>
+										<li><a href="#">Sub-item 2</a></li>
+										<li><a href="#">Sub-item 3</a></li>
+										<li><a href="#">Sub-item 4</a>
+									</li></ul>
+								</li>
+								<li><a href="#">Sub-item 5</a></li>
+							</ul>
+						</li>
+						<li class="has-dropdown not-click"><a href="#">Littérature</a>
+
+							<ul class="dropdown"><li class="title back js-generated"><h5><a href="javascript:void(0)">Back</a></h5></li>
+								<li><label>Level One</label></li>
+								<li><a href="#">Sub-item 1</a></li>
+								<li><a href="#">Sub-item 2</a></li>
+								<li class="divider"></li>
+								<li><a href="#">Sub-item 3</a></li>
+								<li class="has-dropdown not-click"><a href="#">Sub-item 4</a>
+
+									<ul class="dropdown"><li class="title back js-generated"><h5><a href="javascript:void(0)">Back</a></h5></li>
+										<li><label>Level Two</label></li>
+										<li class="has-dropdown not-click"><a href="#">Sub-item 1</a>
+
+											<ul class="dropdown"><li class="title back js-generated"><h5><a href="javascript:void(0)">Back</a></h5></li>
+												<li><label>Level Three</label></li>
+												<li class="has-dropdown not-click"><a href="#">Sub-item 1</a>
+
+													<ul class="dropdown"><li class="title back js-generated"><h5><a href="javascript:void(0)">Back</a></h5></li>
+														<li><label>Level Four</label></li>
+														<li><a href="#">Sub-item 1</a></li>
+													</ul>
+												</li>
+												<li><a href="#">Sub-item 2</a></li>
+												<li><a href="#">Sub-item 3</a></li>
+												<li class="divider"></li>
+												<li><a href="#">Sub-item 4</a></li>
+											</ul>
+										</li>
+										<li><a href="#">Sub-item 2</a></li>
+										<li><a href="#">Sub-item 3</a></li>
+										<li><a href="#">Sub-item 4</a>
+									</li></ul>
+								</li>
+								<li><a href="#">Sub-item 5</a></li>
+							</ul>
+						</li>
+						<li class="has-dropdown not-click"><a href="#">Musique</a>
+
+							<ul class="dropdown"><li class="title back js-generated"><h5><a href="javascript:void(0)">Back</a></h5></li>
+								<li><label>Level One</label></li>
+								<li><a href="#">Sub-item 1</a></li>
+								<li><a href="#">Sub-item 2</a></li>
+								<li class="divider"></li>
+								<li><a href="#">Sub-item 3</a></li>
+								<li class="has-dropdown not-click"><a href="#">Sub-item 4</a>
+
+									<ul class="dropdown"><li class="title back js-generated"><h5><a href="javascript:void(0)">Back</a></h5></li>
+										<li><label>Level Two</label></li>
+										<li class="has-dropdown not-click"><a href="#">Sub-item 1</a>
+
+											<ul class="dropdown"><li class="title back js-generated"><h5><a href="javascript:void(0)">Back</a></h5></li>
+												<li><label>Level Three</label></li>
+												<li class="has-dropdown not-click"><a href="#">Sub-item 1</a>
+
+													<ul class="dropdown"><li class="title back js-generated"><h5><a href="javascript:void(0)">Back</a></h5></li>
+														<li><label>Level Four</label></li>
+														<li><a href="#">Sub-item 1</a></li>
+													</ul>
+												</li>
+												<li><a href="#">Sub-item 2</a></li>
+												<li><a href="#">Sub-item 3</a></li>
+												<li class="divider"></li>
+												<li><a href="#">Sub-item 4</a></li>
+											</ul>
+										</li>
+										<li><a href="#">Sub-item 2</a></li>
+										<li><a href="#">Sub-item 3</a></li>
+										<li><a href="#">Sub-item 4</a>
+									</li></ul>
+								</li>
+								<li><a href="#">Sub-item 5</a></li>
+							</ul>
+						</li>
+						<li><a href="#">À propos</a></li>
+					</ul>
+			</section>
+		</nav>
+
+		</div>
+	</div>
+	
+	{% block mid_content %}
+	
+	{% endblock %}
+
+	<div class="row lueur_esprit_wrapper last_border">
+		<div class="large-8 medium-8 columns">
+		</div>
+	</div>
+
+	<div id="margin_bottom"></div>
+
+		<script src="bower_components/jquery/dist/jquery.min.js"></script>
+		<script src="bower_components/foundation/js/foundation.min.js"></script>
+		<script src="js/app.js"></script>
+	</body>
+</html>
