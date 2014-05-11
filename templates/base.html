@@ -6,7 +6,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Lueur d'esprit</title>
 		<link rel="stylesheet" href="{% static "css/app.css" %}" />
-		<script src="{% static "modernizr.js" %} "></script>
+		<script src="{% static "bower_components/modernizr/modernizr.js" %} "></script>
 		<style type="text/css">
 		.lueur_esprit_wrapper{
 			background-color: #fafa84;
@@ -255,8 +255,8 @@
 
 	<div id="margin_bottom"></div>
 
-		<script src="bower_components/jquery/dist/jquery.min.js"></script>
-		<script src="bower_components/foundation/js/foundation.min.js"></script>
-		<script src="js/app.js"></script>
+		<script src="{% static "bower_components/jquery/dist/jquery.min.js" %}"></script>
+		<script src="{% static "bower_components/foundation/js/foundation.min.js" %}"></script>
+		<script src="{% static "js/app.js" %}"></script>
 	</body>
 </html>
