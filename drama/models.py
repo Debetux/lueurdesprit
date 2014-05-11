@@ -8,6 +8,7 @@ import datetime
 class Play(models.Model):
     title = models.CharField(max_length=100, db_index=True)
     slug = models.SlugField(max_length=100, db_index=True, blank=True)
+    poster = models.ImageField(upload_to='media/plays/')
     description = models.TextField()
 
     def save(self, *args, **kwargs):

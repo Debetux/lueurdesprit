@@ -4,14 +4,14 @@ module.exports = function(grunt) {
 
     sass: {
       options: {
-        includePaths: ['static/bower_components/foundation/scss']
+        includePaths: ['assets/bower_components/foundation/scss']
       },
       dist: {
         options: {
           outputStyle: 'compressed'
         },
         files: {
-          'static/css/app.css': 'static/scss/app.scss'
+          'assets/css/app.css': 'assets/scss/app.scss'
         }        
       }
     },
@@ -20,7 +20,7 @@ module.exports = function(grunt) {
       grunt: { files: ['Gruntfile.js'] },
 
       sass: {
-        files: 'static/scss/**/*.scss',
+        files: 'assets/scss/**/*.scss',
         tasks: ['sass']
       }
     }
