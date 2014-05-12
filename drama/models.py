@@ -4,11 +4,26 @@ from django.utils import timezone
 from django.template.defaultfilters import slugify
 from django.contrib.auth.models import User
 import datetime
+import os
+
+def path_and_rename(path):
+    def wrapper(instance, filename):
+        ext = filename.split('.')[-1]
+        # get filename
+        if instance.title:
+            filename = '{}.{}'.format(slugify(instance.title), ext)
+        else:
+            # set filename as random string
+            filename = '{}.{}'.format(uuid4().hex, ext)
+        # return the whole path to the file
+        return os.path.join(path, filename)
+    return wrapper
+
 
 class Play(models.Model):
     title = models.CharField(max_length=100, db_index=True)
     slug = models.SlugField(max_length=100, db_index=True, blank=True)
-    poster = models.ImageField(upload_to='media/plays/')
+    poster = models.ImageField(upload_to=path_and_rename('plays/'))
     description = models.TextField()
 
     def save(self, *args, **kwargs):
@@ -19,7 +34,9 @@ class Play(models.Model):
         super(Play, self).save(*args, **kwargs)
 
     def __str__(self):
-        return self.title
+        return self.poster.url
+
+
 
 class StaffReview(models.Model):
     title = models.CharField(max_length=100, unique=True)

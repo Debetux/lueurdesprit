@@ -106,3 +106,7 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
     'django.contrib.staticfiles.finders.FileSystemFinder',
 )
+
+# Media, for things like posters, etc...
+MEDIA_ROOT = 'media/'
+MEDIA_URL = '/media/'
