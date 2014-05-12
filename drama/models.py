@@ -67,5 +67,9 @@ class StaffReview(models.Model):
     was_published_recently.boolean = True
     was_published_recently.short_description = 'Published recently?'
 
+    @staticmethod
+    def autocomplete_search_fields():
+        return ("id__iexact", "title__icontains",)
+
     class Meta:
         verbose_name_plural = 'Staff Reviews'
