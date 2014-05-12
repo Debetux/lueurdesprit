@@ -20,10 +20,10 @@ def path_and_rename(path):
     return wrapper
 
 
-class Play(models.Model):
+class Work(models.Model):
     title = models.CharField(max_length=100, db_index=True)
     slug = models.SlugField(max_length=100, unique=True, db_index=True, blank=True)
-    poster = models.ImageField(upload_to=path_and_rename('plays/'), blank=True, null=True)
+    poster = models.ImageField(upload_to=path_and_rename('works/'), blank=True, null=True)
     website_url = models.URLField(blank=True, null=True)
     description = models.TextField()
 
@@ -32,7 +32,7 @@ class Play(models.Model):
             # Newly created object, so set slug
             self.slug = slugify(self.title)
 
-        super(Play, self).save(*args, **kwargs)
+        super(Work, self).save(*args, **kwargs)
 
     def __str__(self):
         return self.title
@@ -47,7 +47,7 @@ class StaffReview(models.Model):
     rating = models.IntegerField()
     pub_date = models.DateTimeField(blank=True)
     author = models.ForeignKey(User, limit_choices_to={'is_staff': True}, null=True, blank=True)
-    play = models.ForeignKey(Play)
+    work = models.ForeignKey(Work)
     draft = models.BooleanField()
 
     def save(self, *args, **kwargs):
