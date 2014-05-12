@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block mid_content %}
+  <div class="row lueur_esprit_wrapper mid_border">
+
+    <div class="large-12 columns">
+      <div class="shadow-box">
+
+        <nav class="top-bar" style="" data-topbar="" data-options="is_hover: false">
+          <section class="top-bar-section">
+
+              <!-- Left Nav Section -->
+              <ul class="left show-for-large-up">
+                <li><a href="#">Les nouveautées</a></li>
+                
+              </ul>
+          </section>
+        </nav>
+
+        <div class="panel">
+          <div class="row">
+
+            <div class="large-3 columns"><img style="max-width:160px; max-height:210px" src="{{ work.poster.url }}">
+            </div>
+
+            <div class="large-9 columns">
+              <h4>{{ work.title }}</h4>
+              <p>{{ work.description }}</p>
+
+              <hr>
+              <p>URL Site : {% if work.website_url %} {{ work.website_url }} {% endif %}<br/>
+              Note moyenne des critiques : 4<br/>
+              Joué au théâtre : Non annoncé pour le moment
+              </p>
+
+            </div>
+            
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+
+  {% endblock %}

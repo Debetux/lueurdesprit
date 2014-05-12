@@ -20,7 +20,8 @@
 				<div class="panel">
 					<div class="row">
 						{% for work in latest_work_pub %}
-						<div class="large-3 columns"><img style="max-width:160px; max-height:210px" src="{{ work.poster.url }}">
+						<div class="large-3 columns">
+							<a href="{% url 'work:work_detail' work.type_of_work.title work.slug %}"><img style="max-width:160px; max-height:210px" src="{{ work.poster.url }}"></a>
 						</div>
 						{% endfor %}
 					</div>
@@ -55,7 +56,7 @@
 						<div class="large-3 columns">
 							<h4><em>{{ review.title }}</em></h4>
 							<p>{{ review.body|truncatechars:200 }}</p>
-							<a href="">Lire la suite >></a>
+							<a href="{% url 'work:review_detail' review.work.type_of_work.title review.slug %}">Lire la suite >></a>
 						</div>
 						{% endfor %}
 
@@ -84,7 +85,7 @@
 
 				<div class="panel">
 					<div class="row">
-						
+
 						<div class="large-6 columns">
 							<div class="row">
 								<div class="large-6 columns"><img src="http://placehold.it/160x210"></div>
