@@ -22,7 +22,7 @@ def path_and_rename(path):
 
 class Play(models.Model):
     title = models.CharField(max_length=100, db_index=True)
-    slug = models.SlugField(max_length=100, db_index=True, blank=True)
+    slug = models.SlugField(max_length=100, unique=True, db_index=True, blank=True)
     poster = models.ImageField(upload_to=path_and_rename('plays/'))
     description = models.TextField()
 
@@ -34,24 +34,26 @@ class Play(models.Model):
         super(Play, self).save(*args, **kwargs)
 
     def __str__(self):
-        return self.poster.url
+        return self.title
 
 
 
 class StaffReview(models.Model):
     title = models.CharField(max_length=100, unique=True)
-    slug = models.SlugField(max_length=100, unique=True)
+    slug = models.SlugField(max_length=100, unique=True, db_index=True, blank=True)
     body = models.TextField()
     posted = models.DateField(db_index=True, auto_now_add=True)
     rating = models.IntegerField()
-    pub_date = models.DateTimeField('date published')
-    author = models.ForeignKey(User, limit_choices_to={'is_staff': True})
+    pub_date = models.DateTimeField(blank=True)
+    author = models.ForeignKey(User, limit_choices_to={'is_staff': True}, null=True, blank=True)
     play = models.ForeignKey(Play)
 
     def save(self, *args, **kwargs):
         if not self.id:
             # Newly created object, so set slug
             self.slug = slugify(self.title)
+            ''' On save, update timestamps '''
+            self.pub_date = datetime.datetime.today()
 
         super(StaffReview, self).save(*args, **kwargs)
 
