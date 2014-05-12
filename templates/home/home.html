@@ -19,14 +19,10 @@
 
 				<div class="panel">
 					<div class="row">
-						<div class="large-3 columns"><img src="http://placehold.it/160x210">
+						{% for work in latest_work_pub %}
+						<div class="large-3 columns"><img style="max-width:160px; max-height:210px" src="{{ work.poster.url }}">
 						</div>
-						<div class="large-3 columns"><img src="http://placehold.it/160x210">
-						</div>
-						<div class="large-3 columns"><img src="http://placehold.it/160x210">
-						</div>
-						<div class="large-3 columns"><img src="http://placehold.it/160x210">
-						</div>
+						{% endfor %}
 					</div>
 				</div>
 
@@ -52,23 +48,17 @@
 
 				<div class="panel">
 					<div class="row">
+						{% for review in latest_reviews_pub %}
 						<div class="large-3 columns">
-							<img src="http://placehold.it/160x210">
+							<img src="{{ review.work.poster.url }}">
 						</div>
 						<div class="large-3 columns">
-							<h3>Réalisateur : bla</h3>
-							<p>blalblalbla</p>
-							<p>Lire la suite >> </p>
+							<h4><em>{{ review.title }}</em></h4>
+							<p>{{ review.body|truncatechars:200 }}</p>
+							<a href="">Lire la suite >></a>
 						</div>
+						{% endfor %}
 
-						<div class="large-3 columns">
-							<img src="http://placehold.it/160x210">
-						</div>
-						<div class="large-3 columns">
-							<h3>Réalisateur : bla</h3>
-							<p>blalblalbla</p>
-							<p>Lire la suite >> </p>
-						</div>
 					</div>
 				</div>
 
@@ -94,6 +84,7 @@
 
 				<div class="panel">
 					<div class="row">
+						
 						<div class="large-6 columns">
 							<div class="row">
 								<div class="large-6 columns"><img src="http://placehold.it/160x210"></div>

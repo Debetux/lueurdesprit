@@ -20,12 +20,23 @@ def path_and_rename(path):
     return wrapper
 
 
+class TypeOfWork(models.Model):
+    title = models.CharField(max_length=100, db_index=True)
+    slug = models.SlugField(max_length=100, db_index=True)
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name_plural = 'Type of works'
+
 class Work(models.Model):
     title = models.CharField(max_length=100, db_index=True)
     slug = models.SlugField(max_length=100, unique=True, db_index=True, blank=True)
     poster = models.ImageField(upload_to=path_and_rename('works/'), blank=True, null=True)
     website_url = models.URLField(blank=True, null=True)
     description = models.TextField()
+    type_of_work = models.ForeignKey(TypeOfWork)
 
     def save(self, *args, **kwargs):
         if not self.id:
@@ -36,7 +47,6 @@ class Work(models.Model):
 
     def __str__(self):
         return self.title
-
 
 
 class StaffReview(models.Model):
