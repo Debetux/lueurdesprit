@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = (
     'grappelli',
+    'filebrowser',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -110,3 +111,5 @@ STATICFILES_FINDERS = (
 # Media, for things like posters, etc...
 MEDIA_ROOT = 'media/'
 MEDIA_URL = '/media/'
+
+DIRECTORY = 'media/'

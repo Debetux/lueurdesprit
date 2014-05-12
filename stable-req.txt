@@ -1,2 +1,4 @@
 Django==1.6.4
+Pillow==2.4.0
+django-filebrowser==3.5.6
 django-grappelli==2.5.3
