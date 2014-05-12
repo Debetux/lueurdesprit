@@ -3,19 +3,19 @@ from drama.models import Play, StaffReview
 from django.contrib.auth.models import User
 
 class PlayAdmin(admin.ModelAdmin):
-    # fields = ['title', 'description']
-    fieldsets = [
-        (None,               {'fields': ['title', 'description', 'poster']}),
-        ('Advanced — Meta Data', {'fields': ['slug'], 'classes': ['grp-collapse grp-closed']}),
-    ]
+        # fields = ['title', 'description']
+        fieldsets = [
+            (None,               {'fields': ['title', 'description', 'website_url', 'poster']}),
+            ('Advanced — Meta Data', {'fields': ['slug'], 'classes': ['grp-collapse grp-closed']}),
+        ]
 
-    def queryset(request):
-        return User.objects.filter(author = request.user)
+        
 
 class StaffReviewAdmin(admin.ModelAdmin):
+    list_display = ['play', 'title', 'pub_date', 'number_of_words', 'rating', 'author', 'draft']
 
     fieldsets = [
-        (None,               {'fields': ['play', 'title', 'body', 'rating']}),
+        (None,               {'fields': ['play', 'title', 'body', 'rating', 'draft']}),
         ('Advanced — Meta Data', {'fields': ['slug', 'pub_date', 'author'], 'classes': ['grp-collapse grp-closed']}),
     ]
 
