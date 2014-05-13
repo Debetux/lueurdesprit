@@ -50,7 +50,7 @@ class Work(models.Model):
 
 
 class StaffReview(models.Model):
-    title = models.CharField(max_length=100, unique=True)
+    title = models.CharField(max_length=100, blank=True, null=True)
     slug = models.SlugField(max_length=100, unique=True, db_index=True, blank=True)
     body = models.TextField()
     posted = models.DateField(db_index=True, auto_now_add=True)

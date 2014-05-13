@@ -27,6 +27,12 @@ class StaffReviewAdmin(admin.ModelAdmin):
             obj.author = request.user
         obj.save()
 
+    class Media:
+        js = [
+            '/static/bower_components/tinymce/tinymce.min.js',
+            '/static/js/tinymce_setup.js'
+        ]
+
 admin.site.register(TypeOfWork)
 admin.site.register(Work, WorkAdmin)
 admin.site.register(StaffReview, StaffReviewAdmin)
