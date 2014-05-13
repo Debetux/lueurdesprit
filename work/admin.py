@@ -12,6 +12,12 @@ class WorkAdmin(admin.ModelAdmin):
             ('Advanced — Meta Data', {'fields': ['slug'], 'classes': ['grp-collapse grp-closed']}),
         ]
 
+        class Media:
+            js = [
+                '/static/bower_components/tinymce/tinymce.min.js',
+                '/static/js/tinymce_setup.js'
+            ]
+
         
 
 class StaffReviewAdmin(admin.ModelAdmin):
