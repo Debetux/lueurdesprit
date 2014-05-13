@@ -25,7 +25,7 @@
 
             <div class="large-9 columns">
               <h4>{{ work.title }}</h4>
-              <p>{{ work.description }}</p>
+              <p>{{ work.description|safe }}</p>
 
               <hr>
               <p>URL Site : {% if work.website_url %} {{ work.website_url }} {% endif %}<br/>
