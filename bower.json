@@ -1,6 +1,7 @@
 {
   "name": "lueurdesprit",
   "dependencies": {
-    "foundation": "zurb/bower-foundation"
+    "foundation": "zurb/bower-foundation",
+    "tinymce": "~4.0.26"
   }
 }
