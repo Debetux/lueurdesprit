@@ -53,6 +53,7 @@ class StaffReview(models.Model):
     title = models.CharField(max_length=100, blank=True, null=True)
     slug = models.SlugField(max_length=100, unique=True, db_index=True, blank=True)
     body = models.TextField()
+    opinion = models.TextField(blank=True, null=True)
     posted = models.DateField(db_index=True, auto_now_add=True)
     rating = models.IntegerField()
     pub_date = models.DateTimeField(blank=True)
