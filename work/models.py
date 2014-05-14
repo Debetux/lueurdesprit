@@ -39,6 +39,11 @@ class Work(models.Model):
     type_of_work = models.ForeignKey(TypeOfWork)
 
     def save(self, *args, **kwargs):
+        if(self.slug):
+            self.slug = slugify(self.slug)
+        elif(len(self.title) == 0):
+            self.slug = slugify(self.title)
+
         if not self.id:
             # Newly created object, so set slug
             self.slug = slugify(self.title)
@@ -64,7 +69,9 @@ class StaffReview(models.Model):
     def save(self, *args, **kwargs):
         if not self.id:
             # Newly created object, so set slug
-            if(len(self.title) == 0):
+            if(self.slug):
+                self.slug = slugify(self.slug)
+            elif(len(self.title) == 0):
                 self.slug = slugify(self.title)
             else:
                 self.slug = slugify(self.work.title)
