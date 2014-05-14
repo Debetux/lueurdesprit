@@ -64,7 +64,10 @@ class StaffReview(models.Model):
     def save(self, *args, **kwargs):
         if not self.id:
             # Newly created object, so set slug
-            self.slug = slugify(self.title)
+            if(len(self.title) == 0):
+                self.slug = slugify(self.title)
+            else:
+                self.slug = slugify(self.work.title)
             ''' On save, update timestamps '''
             self.pub_date = datetime.datetime.today()
 
