@@ -1,6 +1,6 @@
 Python 3.4.
 ```
-apt-get install libsqlite3-dev
+apt-get install libsqlite3-dev libmysqlclient-dev
 virtualenv-3.4 -p /usr/local/bin/python3.4 develop
 ```
 
