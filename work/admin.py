@@ -1,6 +1,11 @@
 from django.contrib import admin
 from work.models import TypeOfWork, Work, StaffReview
 from django.contrib.auth.models import User
+from people.models import People
+
+class PeopleInline(admin.TabularInline):
+    model = Work.peoples.through
+    extra = 3
 
 class WorkAdmin(admin.ModelAdmin):
         # fields = ['title', 'description']
@@ -11,6 +16,9 @@ class WorkAdmin(admin.ModelAdmin):
             (None,               {'fields': ['type_of_work', 'title', 'description', 'website_url', 'poster']}),
             ('Advanced — Meta Data', {'fields': ['slug'], 'classes': ['grp-collapse grp-closed']}),
         ]
+
+        inlines = [PeopleInline]
+
 
         class Media:
             js = [

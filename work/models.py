@@ -6,6 +6,8 @@ from django.contrib.auth.models import User
 import datetime
 import os
 
+from people.models import People
+
 def path_and_rename(path):
     def wrapper(instance, filename):
         ext = filename.split('.')[-1]
@@ -22,7 +24,7 @@ def path_and_rename(path):
 
 class TypeOfWork(models.Model):
     title = models.CharField(max_length=100, db_index=True)
-    slug = models.SlugField(max_length=100, db_index=True)
+    slug = models.SlugField(max_length=100, db_index=True, blank=True)
 
     def __str__(self):
         return self.title
@@ -47,6 +49,7 @@ class Work(models.Model):
     website_url = models.URLField(blank=True, null=True)
     description = models.TextField()
     type_of_work = models.ForeignKey(TypeOfWork)
+    peoples = models.ManyToManyField(People)
 
     def save(self, *args, **kwargs):
 
