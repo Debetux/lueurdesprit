@@ -101,14 +101,14 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
-STATIC_ROOT = 'static/'
-STATIC_URL = '/static/'
+STATIC_ROOT = 'public/static/'
+STATIC_URL = '/public/static/'
 
 GRAPPELLI_ADMIN_TITLE = 'Lueur d\'esprit — Administration'
 
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, "assets"),
-    os.path.join(BASE_DIR, "media"),
+    os.path.join(BASE_DIR, "public", "assets"),
+    os.path.join(BASE_DIR, "public", "media"),
 )
 
 STATICFILES_FINDERS = (
@@ -117,7 +117,7 @@ STATICFILES_FINDERS = (
 )
 
 # Media, for things like posters, etc...
-MEDIA_ROOT = 'media/'
-MEDIA_URL = '/media/'
+MEDIA_ROOT = 'public/media/'
+MEDIA_URL = '/public/media/'
 
 DIRECTORY = 'media/'
