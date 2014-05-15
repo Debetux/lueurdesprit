@@ -29,9 +29,9 @@
 							{{ work.description|safe }}
 							
 							
-							{% if staffreviews %}
+							{% if work_staffreviews %}
 							<hr>
-								{% for review in staffreviews %}
+								{% for review in work_staffreviews %}
 								<p>{{ review.body }}</p>
 								<blockquote>{{ review.opinion }}<cite>{{ review.author }}</cite></blockquote>
 								{% endfor %}
