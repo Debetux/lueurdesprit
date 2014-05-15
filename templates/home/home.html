@@ -56,7 +56,7 @@
 						<div class="medium-3 columns">
 							<h4><em>{% if review.title %} {{ review.title }} {% elif review.work.title %} {{ review.work.title }} {% endif %}</em></h4>
 							<p>{{ review.body|safe|truncatechars:200 }}</p>
-							<a href="{% url 'work:review_detail' review.work.type_of_work.slug|lower review.slug %}">Lire la suite >></a>
+							<a href="{% url 'work:review_detail' review.work.type_of_work.slug|lower review.work.slug|lower review.id %}">Lire la suite >></a>
 						</div>
 						{% endfor %}
 

@@ -13,17 +13,18 @@ def work_detail(request, type_of_work, slug):
         raise Http404
     return render(request, 'work/detail.html', {'work': work})
 
-def review_detail(request, type_of_work, slug):
+def review_detail(request, type_of_work, work_slug, staffreview_id):
     try:
-        review = StaffReview.objects.get(slug=slug)
+        review = StaffReview.objects.get(pk=staffreview_id)
     except Work.DoesNotExist:
         raise Http404
     return render(request, 'work/review.html', {'review': review})
     
-def work_list(type_of_work):
-    return HttpResponse("Hello, world. You're at the poll index.")
+def work_list(request, type_of_work):
+    works = Work.objects.filter(type_of_work__slug=type_of_work)
+    return render(request, 'work/work_list.html', {'works':works})
 
-def staffreview_list(type_of_work):
+def staffreview_list(request, type_of_work):
     return HttpResponse("Hello, world. You're at the poll index.")
 
 

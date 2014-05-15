@@ -35,7 +35,7 @@ class TypeOfWork(models.Model):
             elif(len(self.title) == 0):
                 self.slug = slugify(self.title)
 
-        super(Work, self).save(*args, **kwargs)
+        super(TypeOfWork, self).save(*args, **kwargs)
 
     class Meta:
         verbose_name_plural = 'Type of works'
