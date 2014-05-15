@@ -4,9 +4,10 @@ from work import views
 
 urlpatterns = patterns('',
     url(r'^$', views.index, name='index'),
+
     # List :
-    url(r'^(?P<type_of_work>.+)/$', views.work_list, name="work_list"),
-    url(r'^(?P<type_of_work>.+)/critiques/$', views.staffreview_list, name="staffreview_list"),
+    url(r'^(?P<type_of_work>.+)/list/$', views.work_list, name="work_list"),
+    url(r'^(?P<type_of_work>.+)/critiques/list/$', views.staffreview_list, name="staffreview_list"),
 
     # Details :
     url(r'^(?P<type_of_work>.+)/(?P<slug>.+)$', views.work_detail, name='work_detail'),
