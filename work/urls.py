@@ -10,7 +10,7 @@ urlpatterns = patterns('',
     url(r'^(?P<type_of_work>.+)/critiques/list/$', views.staffreview_list, name="staffreview_list"),
 
     # Details :
-    url(r'^(?P<type_of_work>.+)/(?P<slug>.+)$', views.work_detail, name='work_detail'),
-    url(r'^(?P<type_of_work>.+)/(?P<work_slug>.+)/critique/(?P<staffreview_id>\d+)$', views.review_detail, name='review_detail'),
+    url(r'^fiche/(?P<type_of_work>.+)/(?P<slug>.+)$', views.work_detail, name='work_detail'),
+    url(r'^critique/(?P<type_of_work>.+)/(?P<work_slug>.+)/(?P<staffreview_id>\d+)$', views.review_detail, name='review_detail'),
 
 )
