@@ -22,7 +22,7 @@ def path_and_rename(path):
 
 class TypeOfPeople(models.Model):
     title = models.CharField(max_length=100, db_index=True)
-    slug = models.SlugField(max_length=100, db_index=True)
+    slug = models.SlugField(max_length=100, db_index=True, blank=True)
 
     def __str__(self):
         return self.title
@@ -55,10 +55,12 @@ class People(models.Model):
             # Newly created object, so set slug
             if(self.slug):
                 self.slug = slugify(self.slug)
-            elif(len(self.title) >= 0):
-                self.slug = slugify(self.title)
+            else:
+                self.slug = slugify('{} {}'.format(self.first_name, self.last_name))
+
+        self.last_name = self.last_name.upper()
 
         super(People, self).save(*args, **kwargs)
 
     def __str__(self):
-        return '{}{}'.format(self.first_name, self.last_name)
+        return '{} {}'.format(self.first_name, self.last_name)
