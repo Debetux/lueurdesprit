@@ -35,8 +35,8 @@ class StaffReviewAdmin(admin.ModelAdmin):
 
     class Media:
         js = [
-            '/static/bower_components/tinymce/tinymce.min.js',
-            '/static/js/tinymce_setup.js'
+            '/public/static/bower_components/tinymce/tinymce.min.js',
+            '/public/static/js/tinymce_setup.js'
         ]
 
 admin.site.register(TypeOfWork)
