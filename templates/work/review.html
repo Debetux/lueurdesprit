@@ -31,7 +31,10 @@
 
 						<div class="large-9 columns">
 							<h4>{{ review.title }}</h4>
-							<p>{{ review.body|safe }}</p>
+							<p>{{ review.body|safe }}
+								<cite>{{ review.author.first_name }} {{ review.author.last_name|upper }}</cite>
+							</p>
+
 
 							<hr>
 							<p>
