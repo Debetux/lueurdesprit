@@ -32,8 +32,8 @@
 							{% if work_staffreviews %}
 							<hr>
 								{% for review in work_staffreviews %}
-								<p>{{ review.body }}</p>
-								<blockquote>{{ review.opinion }}<cite>{{ review.author }}</cite></blockquote>
+								<p>{{ review.body|safe }}</p>
+								<blockquote>{{ review.opinion|safe }}<cite>{{ review.author }}</cite></blockquote>
 								{% endfor %}
 
 							{% endif %}
