@@ -15,7 +15,7 @@ def work_detail(request, type_of_work, slug):
         if(len(staffreviews) > 0):
 
             for review in staffreviews:
-                average_rating += review.rating
+                average_rating += int(review.rating)
 
             average_rating /= len(staffreviews)
 
