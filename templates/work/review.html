@@ -1,46 +1,52 @@
 {% extends "base.html" %}
 
 {% block mid_content %}
-  <div class="row lueur_esprit_wrapper mid_border">
+	<div class="row lueur_esprit_wrapper mid_border">
 
-    <div class="large-12 columns">
-      <div class="shadow-box">
+		<div class="large-12 columns">
+			<div class="shadow-box">
 
-        <nav class="top-bar" style="" data-topbar="" data-options="is_hover: false">
-          <section class="top-bar-section">
+				<nav class="top-bar" style="" data-topbar="" data-options="is_hover: false">
+					<section class="top-bar-section">
 
-              <!-- Left Nav Section -->
-              <ul class="left show-for-large-up">
-                <li><a href="#">Les nouveautées</a></li>
-                
-              </ul>
-          </section>
-        </nav>
+							<!-- Left Nav Section -->
+							<ul class="left show-for-large-up">
+								<li><a href="#">Les nouveautées</a></li>
+								
+							</ul>
+					</section>
+				</nav>
 
-        <div class="panel">
-          <div class="row">
+				<div class="panel">
+					<div class="row">
 
-            <div class="large-3 columns"><img style="max-width:160px; max-height:210px" src="{{ review.work.poster.url }}">
-            </div>
+						<div class="large-3 columns">
+						
+						{% if work.poster.url %}	
+							<img style="max-width:160px; max-height:210px" src="{{ review.work.poster.url }}">
+						{% endif %}
 
-            <div class="large-9 columns">
-              <h4>{{ review.title }}</h4>
-              <p>{{ review.body|safe }}</p>
+						
+						</div>
 
-              <hr>
-              <p>
-              Note de la critique : {{ review.rating }}/5
-              </p>
+						<div class="large-9 columns">
+							<h4>{{ review.title }}</h4>
+							<p>{{ review.body|safe }}</p>
 
-            </div>
-            
-          </div>
-        </div>
+							<hr>
+							<p>
+							Note de la critique : {{ review.rating }}/5
+							</p>
 
-      </div>
-    </div>
-  </div>
+						</div>
+						
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
 
 
 
-  {% endblock %}
+	{% endblock %}

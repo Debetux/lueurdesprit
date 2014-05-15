@@ -20,7 +20,12 @@
 				<div class="panel">
 					<div class="row">
 
-						<div class="large-3 columns"><img style="max-width:160px; max-height:210px" src="{{ work.poster.url }}">
+						<div class="large-3 columns">
+
+						{% if work.poster.url %}
+							<img style="max-width:160px; max-height:210px" src="{{ work.poster.url }}">
+						{% endif %}
+						
 						</div>
 
 						<div class="large-9 columns">
