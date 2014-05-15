@@ -51,7 +51,7 @@
 					<div class="row">
 						{% for review in latest_reviews_pub %}
 						<div class="medium-3 columns">
-							<img src="{{ review.work.poster.url }}">
+							<img style="width:209px" src="{{ review.work.poster.url }}">
 						</div>
 						<div class="medium-3 columns">
 							<h4><em>{% if review.title %} {{ review.title }} {% elif review.work.title %} {{ review.work.title }} {% endif %}</em></h4>
