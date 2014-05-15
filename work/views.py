@@ -9,9 +9,21 @@ def index(request):
 def work_detail(request, type_of_work, slug):
     try:
         work = Work.objects.get(slug=slug)
+        staffreviews = StaffReview.objects.filter(work__pk=work.id)
+
+        average_rating = None
+        if(len(staffreviews) > 0):
+            average 
+
+            for review in staffreviews:
+                average_rating += review.rating
+
+            average_rating /= len(staffreviews)
+
     except Work.DoesNotExist:
         raise Http404
-    return render(request, 'work/detail.html', {'work': work})
+
+    return render(request, 'work/detail.html', {'work': work, 'work_staffreviews' : staffreviews, 'average_rating': average_rating})
 
 def review_detail(request, type_of_work, work_slug, staffreview_id):
     try:
