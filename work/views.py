@@ -20,4 +20,11 @@ def review_detail(request, type_of_work, slug):
         raise Http404
     return render(request, 'work/review.html', {'review': review})
     
+def work_list(type_of_work):
+    return HttpResponse("Hello, world. You're at the poll index.")
+
+def staffreview_list(type_of_work):
+    return HttpResponse("Hello, world. You're at the poll index.")
+
+
 # Create your views here.

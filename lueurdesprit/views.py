@@ -11,6 +11,6 @@ def home(request):
     context = {
         'latest_work_pub': latest_work_pub,
         'latest_reviews_pub': latest_reviews_pub,
-        'latest_news': latest_news
+        'latest_news': latest_news,
     }
     return render(request, 'home/home.html', context)

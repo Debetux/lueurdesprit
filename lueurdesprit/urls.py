@@ -11,7 +11,7 @@ from filebrowser.sites import site
 urlpatterns = patterns('',
     # Examples:
     url(r'^$', 'lueurdesprit.views.home', name='home'),
-    url(r'^work/', include('work.urls', namespace='work')),
+    url(r'^oeuvre/', include('work.urls', namespace='work')),
     url(r'^blog/', include('blog.urls', namespace='blog')),
     url(r'^admin/filebrowser/', include(site.urls)),
     url(r'^grappelli/', include('grappelli.urls')),

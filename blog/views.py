@@ -11,5 +11,8 @@ def view_entry(request, slug):
     except Work.DoesNotExist:
         raise Http404
     return render(request, 'blog/detail.html', {'entry': entry})
+
+def view_entry_in_category():
+	pass
     
 # Create your views here.
