@@ -34,12 +34,17 @@ INSTALLED_APPS = (
     'filebrowser',
     'django.contrib.admin',
     'django.contrib.auth',
+    'django.contrib.sites',
+    'django.contrib.comments',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'blog',
-    'work'
+    # 'blog',
+    'work',
+    'tagging',
+    'mptt',
+    'zinnia',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -58,7 +63,8 @@ TEMPLATE_CONTEXT_PROCESSOR = ("django.contrib.auth.context_processors.auth",
 "django.core.context_processors.static",
 "django.core.context_processors.tz",
 "django.contrib.messages.context_processors.messages"
-"django.core.context_processors.request")
+"django.core.context_processors.request",
+"zinnia.context_processors.version")
 
 TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates')]
 
@@ -121,3 +127,5 @@ MEDIA_ROOT = 'public/media/'
 MEDIA_URL = '/public/media/'
 
 DIRECTORY = 'media/'
+
+SITE_ID = 1
