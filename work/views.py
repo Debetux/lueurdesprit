@@ -13,7 +13,6 @@ def work_detail(request, type_of_work, slug):
 
         average_rating = None
         if(len(staffreviews) > 0):
-            average 
 
             for review in staffreviews:
                 average_rating += review.rating
