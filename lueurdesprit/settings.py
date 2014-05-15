@@ -39,7 +39,8 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'blog',
-    'work'
+    'work',
+    'gunicorn'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -121,3 +122,8 @@ MEDIA_ROOT = 'public/media/'
 MEDIA_URL = '/public/media/'
 
 DIRECTORY = 'media/'
+
+# for gunicorn
+LOGGING = {
+    'version': 1,
+}

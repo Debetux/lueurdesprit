@@ -76,16 +76,12 @@ class StaffReview(models.Model):
     draft = models.BooleanField()
 
     def save(self, *args, **kwargs):
-        if not self.id:
-            # Newly created object, so set slug
-            if(self.slug):
-                self.slug = slugify(self.slug)
-            elif(len(self.title) >= 0):
-                self.slug = slugify(self.title)
-            else:
-                self.slug = slugify(self.work.title)
-            ''' On save, update timestamps '''
-            self.pub_date = datetime.datetime.today()
+        if(len(self.title) >= 0):
+            self.slug = slugify(self.work.title)
+        else:
+            self.slug = slugify(self.work.title)
+        ''' On save, update timestamps '''
+        self.pub_date = datetime.datetime.today()
 
         super(StaffReview, self).save(*args, **kwargs)
 
