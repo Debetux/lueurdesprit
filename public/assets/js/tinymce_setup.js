@@ -6,6 +6,7 @@ tinymce.init({
 		"insertdatetime media table contextmenu paste"
 	],
 	toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image",
+	paste_as_text: true,
 	autosave_ask_before_unload: false,
 	height : 300
 });
