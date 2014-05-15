@@ -32,7 +32,7 @@ class TypeOfWork(models.Model):
             # Newly created object, so set slug
             if(self.slug):
                 self.slug = slugify(self.slug)
-            elif(len(self.title) == 0):
+            elif(len(self.title) >= 0):
                 self.slug = slugify(self.title)
 
         super(TypeOfWork, self).save(*args, **kwargs)
@@ -54,7 +54,7 @@ class Work(models.Model):
             # Newly created object, so set slug
             if(self.slug):
                 self.slug = slugify(self.slug)
-            elif(len(self.title) == 0):
+            elif(len(self.title) >= 0):
                 self.slug = slugify(self.title)
 
         super(Work, self).save(*args, **kwargs)
@@ -80,7 +80,7 @@ class StaffReview(models.Model):
             # Newly created object, so set slug
             if(self.slug):
                 self.slug = slugify(self.slug)
-            elif(len(self.title) == 0):
+            elif(len(self.title) >= 0):
                 self.slug = slugify(self.title)
             else:
                 self.slug = slugify(self.work.title)
