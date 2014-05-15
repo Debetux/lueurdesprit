@@ -30,7 +30,7 @@ def work_detail(request, type_of_work, slug):
 def review_detail(request, type_of_work, work_slug, staffreview_id):
     try:
         review = StaffReview.objects.get(pk=staffreview_id)
-    except Work.DoesNotExist:
+    except StaffReview.DoesNotExist:
         raise Http404
     return render(request, 'work/review.html', {'review': review})
     
