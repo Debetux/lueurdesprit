@@ -71,18 +71,29 @@ WSGI_APPLICATION = 'lueurdesprit.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     },
+#     'mysql': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'lueurdesprit',
+#         'USER': 'lueurdesprit',
+#         'PASSWORD': 'mypassword',
+#         'HOST': '127.0.0.1',
+#         'PORT': '5432',
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    },
-    'mysql': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'lueurdesprit',
-        'USER': 'lueurdesprit',
-        'PASSWORD': 'mypassword',
+        'NAME': 'lueuresprit',
+        'USER': 'lueuresprit',
+        'PASSWORD': 'YKveot6CgFXMXNFp8d82e9ep',
         'HOST': '127.0.0.1',
-        'PORT': '5432',
+        'PORT': '3306',
     }
 }
 
