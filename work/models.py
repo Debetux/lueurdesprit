@@ -27,6 +27,16 @@ class TypeOfWork(models.Model):
     def __str__(self):
         return self.title
 
+    def save(self, *args, **kwargs):
+        if not self.id:
+            # Newly created object, so set slug
+            if(self.slug):
+                self.slug = slugify(self.slug)
+            elif(len(self.title) == 0):
+                self.slug = slugify(self.title)
+
+        super(Work, self).save(*args, **kwargs)
+
     class Meta:
         verbose_name_plural = 'Type of works'
 
@@ -39,14 +49,13 @@ class Work(models.Model):
     type_of_work = models.ForeignKey(TypeOfWork)
 
     def save(self, *args, **kwargs):
-        if(self.slug):
-            self.slug = slugify(self.slug)
-        elif(len(self.title) == 0):
-            self.slug = slugify(self.title)
 
         if not self.id:
             # Newly created object, so set slug
-            self.slug = slugify(self.title)
+            if(self.slug):
+                self.slug = slugify(self.slug)
+            elif(len(self.title) == 0):
+                self.slug = slugify(self.title)
 
         super(Work, self).save(*args, **kwargs)
 
