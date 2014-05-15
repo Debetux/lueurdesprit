@@ -25,9 +25,9 @@
               </tr>
             </thead>
             <tbody>
-              {% for work in works %}
+              {% for review in staffreviews %}
               <tr>
-                <td><a href="{% url 'work:work_detail' work.type_of_work.slug work.slug %}">{{ work.title }}</a></td>
+                <td><a href="{% url 'work:work_detail' review.type_of_work.slug review.slug %}">{{ review.title }}</a></td>
               </tr>
               {% endfor %}
             </tbody>

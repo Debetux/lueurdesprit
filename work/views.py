@@ -24,8 +24,9 @@ def work_list(request, type_of_work):
     works = Work.objects.filter(type_of_work__slug=type_of_work)
     return render(request, 'work/work_list.html', {'works':works})
 
-def staffreview_list(request, type_of_work):
-    return HttpResponse("Hello, world. You're at the poll index.")
+def staffreview_list(request, type_of_work):    
+    staffreviews = StaffReview.objects.filter(work__type_of_work__slug=type_of_work)
+    return render(request, 'work/staffreview_list.html', {'staffreviews':staffreviews})
 
 
 # Create your views here.
