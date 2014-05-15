@@ -11,8 +11,11 @@ def work_detail(request, type_of_work, slug):
         work = Work.objects.get(slug=slug)
         staffreviews = StaffReview.objects.filter(work__pk=work.id)
 
+
         average_rating = None
+        
         if(len(staffreviews) > 0):
+            average_rating = int()
 
             for review in staffreviews:
                 average_rating += int(review.rating)
