@@ -34,14 +34,16 @@
 							{{ work.description|safe }}
 							
 							
-							{% if work_staffreviews %}
-							<hr>
-								{% for review in work_staffreviews %}
-								<p>{{ review.body|safe }}</p>
-								<blockquote>{{ review.opinion|safe }}<cite>{{ review.author.first_name }} {{ review.author.last_name|upper }}</cite></blockquote>
-								{% endfor %}
+							{% comment %}
+								{% if work_staffreviews %}
+								<hr>
+									{% for review in work_staffreviews %}
+									<p>{{ review.body|safe }}</p>
+									<blockquote>{{ review.opinion|safe }}<cite>{{ review.author.first_name }} {{ review.author.last_name|upper }}</cite></blockquote>
+									{% endfor %}
 
-							{% endif %}
+								{% endif %}
+							{% endcomment %}
 						
 
 							<hr>
