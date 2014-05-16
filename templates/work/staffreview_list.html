@@ -28,7 +28,13 @@
 
 									<div class="large-9 columns">
 										<h1><a href="{% url 'work:work_detail' work.type_of_work.slug work.slug %}">{{ work.title }}</a></h1>
-										<p>{{ work.description|safe }}</p>
+										<p>{{ staffreview.body|safe }}</p>
+
+										{% if staffreview.opinion %}
+										<p>
+											{{ staffreview.opinion }}
+										</p>
+										{% endif %}
 
 										<div class="preview-footer">
 												{% for staffreview in work.staffreview_set.all %}
@@ -40,8 +46,9 @@
 															<img style="width:30px" src="{% static "img/feather_white.png" %}">
 														{% endif %}
 													{% endfor %}
+
 													<br>
-													<a href="{% url 'work:review_detail' staffreview.work.type_of_work.slug staffreview.work.slug staffreview.id %}">>> Voir la critique de {{ staffreview.author.first_name }} {{ staffreview.author.last_name|upper }}</a>
+													>> Critique de { staffreview.author.first_name }} {{ staffreview.author.last_name|upper }}
 
 												{% endfor %}
 										</div>
