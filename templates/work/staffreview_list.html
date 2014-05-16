@@ -1,64 +1,64 @@
 {% extends "base.html" %}
 {% load static %}
 {% block mid_content %}
-  <div class="row lueur_esprit_wrapper mid_border">
+	<div class="row lueur_esprit_wrapper mid_border">
 
-    <div class="large-12 columns">
-      <div class="shadow-box">
+		<div class="large-12 columns">
+			<div class="shadow-box">
 
-        <nav class="top-bar" style="" data-topbar="" data-options="is_hover: false">
-          <section class="top-bar-section">
+				<nav class="top-bar" style="" data-topbar="" data-options="is_hover: false">
+					<section class="top-bar-section">
 
-              <!-- Left Nav Section -->
-              <ul class="left show-for-large-up">
-                <li><a href="#">Fiches</a></li>
-                
-              </ul>
-          </section>
-        </nav>
+							<!-- Left Nav Section -->
+							<ul class="left show-for-large-up">
+								<li><a href="#">Fiches</a></li>
+								
+							</ul>
+					</section>
+				</nav>
 
-        <div class="panel">
-          
+				<div class="panel">
+					
+						{% for staffreview in staffreviews %}
+							{% with staffreview.work as work %}
+								<div class="row">
+									<div class="large-3 columns">
+										<img style="width:163px" src="{{ work.poster.url }}">
+									</div>
 
-              {% for work in works %}
-                <div class="row">
-                  <div class="large-3 columns">
-                    <img style="width:163px" src="{{ work.poster.url }}">
-                  </div>
+									<div class="large-9 columns">
+										<h1><a href="{% url 'work:work_detail' work.type_of_work.slug work.slug %}">{{ work.title }}</a></h1>
+										<p>{{ work.description|safe }}</p>
 
-                  <div class="large-9 columns">
-                    <h1><a href="{% url 'work:work_detail' work.type_of_work.slug work.slug %}">{{ work.title }}</a></h1>
-                    <p>{{ work.description|safe }}</p>
+										<div class="preview-footer">
+												{% for staffreview in work.staffreview_set.all %}
 
-                    <div class="preview-footer">
-                        {% for staffreview in work.staffreview_set.all %}
+													{% for i in range_five %}
+														{% if staffreview.rating <= i %}
+															<img style="width:30px" src="{% static "img/feather.png" %}">
+														{% else %}
+															<img style="width:30px" src="{% static "img/feather_white.png" %}">
+														{% endif %}
+													{% endfor %}
+													<br>
+													<a href="{% url 'work:review_detail' staffreview.work.type_of_work.slug staffreview.work.slug staffreview.id %}">>> Voir la critique de {{ staffreview.author.first_name }} {{ staffreview.author.last_name|upper }}</a>
 
-                          {% for i in range_five %}
-                            {% if staffreview.rating <= i %}
-                              <img style="width:30px" src="{% static "img/feather.png" %}">
-                            {% else %}
-                              <img style="width:30px" src="{% static "img/feather_white.png" %}">
-                            {% endif %}
-                          {% endfor %}
-                          <br>
-                          <a href="{% url 'work:review_detail' staffreview.work.type_of_work.slug staffreview.work.slug staffreview.id %}">>> Voir la critique de {{ staffreview.author.first_name }} {{ staffreview.author.last_name|upper }}</a>
+												{% endfor %}
+										</div>
+												
+									</div>
 
-                        {% endfor %}
-                    </div>
-                        
-                  </div>
+								</div>
+								<hr/>
+								
+						{% endfor %}
 
-                </div>
-                <hr/>
-                
-              {% endfor %}
+				</div>
 
-        </div>
-
-      </div>
-    </div>
-  </div>
+			</div>
+		</div>
+	</div>
 
 
 
-  {% endblock %}
+	{% endblock %}
