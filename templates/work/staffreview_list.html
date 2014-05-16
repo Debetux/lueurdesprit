@@ -11,7 +11,7 @@
 
 							<!-- Left Nav Section -->
 							<ul class="left show-for-large-up">
-								<li><a href="#">Fiches</a></li>
+								<li><a href="#">Critique</a></li>
 								
 							</ul>
 					</section>
@@ -52,6 +52,8 @@
 
 												{% endfor %}
 										</div>
+
+										<a href="{% url 'work:work_detail' work.type_of_work.slug work.slug %}">>> Aller voir la fiche.</a>
 												
 									</div>
 
