@@ -31,12 +31,17 @@
 										<p>{{ work.description|safe }}</p>
 
 										<div class="preview-footer">
-										    {% for staffreview in work.sr %}
-										    	Critique de {{ staffreview.author.first_name }} {{ staffreview.author.last_name|upper }}
+										    {% for staffreview in work.staffreview_set.all %}
 
-										    	{% for i in staffreview.rating %}
-										    		<img style="width:30px" src="{% static "img/feather.png" %}">
+										    	{% for i in range_five %}
+										    		{% if staffreview.rating <= i %}
+										    			<img style="width:30px" src="{% static "img/feather.png" %}">
+										    		{% else %}
+										    			<img style="width:30px" src="{% static "img/feather_white.png" %}">
+										    		{% endif %}
 										    	{% endfor %}
+										    	<br>
+										    	<a href="{% url 'work:review_detail' staffreview.work.type_of_work.slug staffreview.work.slug staffreview.id %}">>> Voir la critique de {{ staffreview.author.first_name }} {{ staffreview.author.last_name|upper }}</a>
 
 										    {% endfor %}
 										</div>
