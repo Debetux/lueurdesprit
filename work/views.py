@@ -40,5 +40,13 @@ def work_list(request, type_of_work):
     return render(request, 'work/work_list.html', {'works':works, 'range_five':range(0,5)})
 
 def staffreview_list(request, type_of_work):    
-    staffreviews = StaffReview.objects.filter(work__type_of_work__slug=type_of_work)
-    return render(request, 'work/staffreview_list.html', {'staffreviews':staffreviews})
+    works = Work.objects.filter(type_of_work__slug=type_of_work).exclude(staffreview__set__pk=None)
+    works_review = list()
+
+
+    for work in works:
+        if len(work.staffreview.set.all()) >= 1:
+            works_review.append(work)
+
+
+    return render(request, 'work/work_list.html', {'works':works_review, 'range_five':range(0,5)})
