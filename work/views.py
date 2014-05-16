@@ -43,4 +43,3 @@ def staffreview_list(request, type_of_work):
     return render(request, 'work/staffreview_list.html', {'staffreviews':staffreviews})
 
 
-# Create your views here.
