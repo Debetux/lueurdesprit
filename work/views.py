@@ -36,6 +36,15 @@ def review_detail(request, type_of_work, work_slug, staffreview_id):
     
 def work_list(request, type_of_work):
     works = Work.objects.filter(type_of_work__slug=type_of_work)
+
+    for w in works:
+        w.sr = list()
+        for s in w.staffreview_set.all():
+            s.rating = range(0,int(s.rating))
+        w.sr.append(s)
+
+
+
     return render(request, 'work/work_list.html', {'works':works})
 
 def staffreview_list(request, type_of_work):    
