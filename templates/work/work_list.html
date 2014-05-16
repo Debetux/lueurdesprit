@@ -23,7 +23,7 @@
 							{% for work in works %}
 								<div class="row">
 									<div class="large-3 columns">
-										<img src="http://placehold.it/163x257">
+										<img style="width:163px" src="{{ work.poster.url }}">
 									</div>
 
 									<div class="large-9 columns">
@@ -49,8 +49,7 @@
 									</div>
 
 								</div>
-
-
+								<hr/>
 								
 							{% endfor %}
 
