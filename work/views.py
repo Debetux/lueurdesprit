@@ -36,11 +36,9 @@ def review_detail(request, type_of_work, work_slug, staffreview_id):
     
 def work_list(request, type_of_work):
     works = Work.objects.filter(type_of_work__slug=type_of_work)
-    return render(request, 'work/work_list.html', {'works':works})
+
+    return render(request, 'work/work_list.html', {'works':works, 'range_five':range(0,5)})
 
 def staffreview_list(request, type_of_work):    
     staffreviews = StaffReview.objects.filter(work__type_of_work__slug=type_of_work)
     return render(request, 'work/staffreview_list.html', {'staffreviews':staffreviews})
-
-
-# Create your views here.

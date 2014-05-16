@@ -6,7 +6,7 @@ urlpatterns = patterns('',
     url(r'^$', views.index, name='index'),
 
     # List :
-    url(r'^(?P<type_of_work>.+)/list/$', views.work_list, name="work_list"),
+    url(r'^(?P<type_of_work>.+)/fiches/list/$', views.work_list, name="work_list"),
     url(r'^(?P<type_of_work>.+)/critiques/list/$', views.staffreview_list, name="staffreview_list"),
 
     # Details :
