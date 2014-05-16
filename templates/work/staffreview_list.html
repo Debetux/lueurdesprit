@@ -32,7 +32,7 @@
 
 										{% if staffreview.opinion %}
 										<p>
-											{{ staffreview.opinion }}
+											{{ staffreview.opinion|safe }}
 										</p>
 										{% endif %}
 
