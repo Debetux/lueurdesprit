@@ -20,9 +20,11 @@
 				<div class="panel">
 					<div class="row">
 						{% for work in latest_work_pub %}
-						<div class="medium-3 columns">
-							<a href="{% url 'work:work_detail' work.type_of_work.slug|lower work.slug %}"><img style="max-width:160px; max-height:210px" src="{{ work.poster.url }}"></a>
-						</div>
+							{% if work.staffreview_set.all|length >= 1 %}
+								<div class="medium-3 columns">
+									<a href="{% url 'work:work_detail' work.type_of_work.slug|lower work.slug %}"><img style="max-width:160px; max-height:210px" src="{{ work.poster.url }}"></a>
+								</div>
+							{% endif %}
 						{% endfor %}
 					</div>
 				</div>
