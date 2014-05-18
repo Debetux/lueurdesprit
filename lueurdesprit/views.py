@@ -9,10 +9,10 @@ def home(request):
     # latest_reviews_pub = StaffReview.objects.all().exclude(work__poster='').order_by('-pub_date')[:2]
     latest_news = Entry.objects.all()
 
-    latest_staffreviews_theatre = Work.objects.filter(type_of_work__slug="piece-de-theatre", staffreview__pk__isnull=False).order_by('-pk')[:4]
-    latest_staffreviews_book = Work.objects.filter(type_of_work__slug="litterature", staffreview__pk__isnull=False).order_by('-pk')[:4]
-    latest_staffreviews_cinema = Work.objects.filter(type_of_work__slug="cinema", staffreview__pk__isnull=False).order_by('-pk')[:4]
-    latest_staffreviews_music = Work.objects.filter(type_of_work__slug="musique", staffreview__pk__isnull=False).order_by('-pk')[:4]
+    latest_staffreviews_theatre = Work.objects.filter(type_of_work__slug="piece-de-theatre", staffreview__pk__isnull=False, staffreview__draft=False).order_by('-pk')[:4]
+    latest_staffreviews_book = Work.objects.filter(type_of_work__slug="litterature", staffreview__pk__isnull=False, staffreview__draft=False).order_by('-pk')[:4]
+    latest_staffreviews_cinema = Work.objects.filter(type_of_work__slug="cinema", staffreview__pk__isnull=False, staffreview__draft=False).order_by('-pk')[:4]
+    latest_staffreviews_music = Work.objects.filter(type_of_work__slug="musique", staffreview__pk__isnull=False, staffreview__draft=False).order_by('-pk')[:4]
 
     context = {
         # 'latest_work_pub':              latest_work_pub,
