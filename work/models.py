@@ -86,8 +86,10 @@ class StaffReview(models.Model):
             self.slug = slugify(self.work.title)
         else:
             self.slug = slugify(self.work.title)
+
         ''' On save, update timestamps '''
-        self.pub_date = datetime.datetime.today()
+        if not self.id:
+            self.pub_date = datetime.datetime.today()
 
         super(StaffReview, self).save(*args, **kwargs)
 
@@ -112,8 +114,9 @@ class StaffReview(models.Model):
     published.short_description = 'Published ?' 
 
     def number_of_words(self):
-
         return len(self.body.split())
+
+    number_of_words.short_description = 'Nombre de mots de la critique'
 
     @staticmethod
     def autocomplete_search_fields():
