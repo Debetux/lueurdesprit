@@ -114,7 +114,7 @@ class StaffReview(models.Model):
     published.short_description = 'Published ?' 
 
     def number_of_words(self):
-        return len(self.body.split())
+        return len(self.body.split() + self.opinion.split())
 
     number_of_words.short_description = 'Nombre de mots de la critique'
 
