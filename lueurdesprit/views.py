@@ -4,7 +4,7 @@ from work.models import TypeOfWork, Work, StaffReview
 from blog.models import Entry
 
 def home(request):
-	""" Useless, for now """
+    """ Useless, for now """
     # latest_work_pub = Work.objects.all().exclude(staffreview__pk__isnull=True).order_by('-pk')[:4]
     # latest_reviews_pub = StaffReview.objects.all().exclude(work__poster='').order_by('-pub_date')[:2]
     latest_news = Entry.objects.all()
@@ -15,12 +15,12 @@ def home(request):
     latest_staffreviews_music = Work.objects.filter(work__type_of_work__slug="musique").exclude(staffreview__pk__isnull=True).order_by('-pk')[:4]
 
     context = {
-        'latest_work_pub': 				latest_work_pub,
-        'latest_reviews_pub': 			latest_reviews_pub,
-        'latest_news': 					latest_news,
-        'latest_staffreviews_theatre': 	latest_staffreviews_theatre,
-        'latest_staffreviews_cinema': 	latest_staffreviews_cinema,
-        'latest_staffreviews_book': 	latest_staffreviews_book,
-        'latest_staffreviews_music': 	latest_staffreviews_music,
+        'latest_work_pub':              latest_work_pub,
+        'latest_reviews_pub':           latest_reviews_pub,
+        'latest_news':                  latest_news,
+        'latest_staffreviews_theatre':  latest_staffreviews_theatre,
+        'latest_staffreviews_cinema':   latest_staffreviews_cinema,
+        'latest_staffreviews_book':     latest_staffreviews_book,
+        'latest_staffreviews_music':    latest_staffreviews_music,
     }
     return render(request, 'home/home.html', context)
