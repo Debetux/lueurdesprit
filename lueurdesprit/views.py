@@ -9,10 +9,10 @@ def home(request):
     # latest_reviews_pub = StaffReview.objects.all().exclude(work__poster='').order_by('-pub_date')[:2]
     latest_news = Entry.objects.all()
 
-    latest_staffreviews_theatre     = StaffReview.objects.filter(work__poster='', work__type_of_work__slug="piece-de-theatre", draft=False).order_by('-pub_date')[:4]
-    latest_staffreviews_book        = StaffReview.objects.filter(work__poster='', work__type_of_work__slug="litterature", draft=False).order_by('-pub_date')[:4]
-    latest_staffreviews_cinema      = StaffReview.objects.filter(work__poster='', work__type_of_work__slug="cinema", draft=False).order_by('-pub_date')[:4]
-    latest_staffreviews_music       = StaffReview.objects.filter(work__poster='', work__type_of_work__slug="musique", draft=False).order_by('-pub_date')[:4]
+    latest_staffreviews_theatre     = StaffReview.objects.filter(work__poster__isnull=False, work__type_of_work__slug="piece-de-theatre", draft=False).order_by('-pub_date')[:4]
+    latest_staffreviews_book        = StaffReview.objects.filter(work__poster__isnull=False, work__type_of_work__slug="litterature", draft=False).order_by('-pub_date')[:4]
+    latest_staffreviews_cinema      = StaffReview.objects.filter(work__poster__isnull=False, work__type_of_work__slug="cinema", draft=False).order_by('-pub_date')[:4]
+    latest_staffreviews_music       = StaffReview.objects.filter(work__poster__isnull=False, work__type_of_work__slug="musique", draft=False).order_by('-pub_date')[:4]
 
 
     context = {
