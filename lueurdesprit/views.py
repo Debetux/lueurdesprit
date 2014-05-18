@@ -15,8 +15,8 @@ def home(request):
     latest_staffreviews_music = Work.objects.filter(type_of_work__slug="musique").exclude(staffreview__pk__isnull=True).order_by('-pk')[:4]
 
     context = {
-        'latest_work_pub':              latest_work_pub,
-        'latest_reviews_pub':           latest_reviews_pub,
+        # 'latest_work_pub':              latest_work_pub,
+        # 'latest_reviews_pub':           latest_reviews_pub,
         'latest_news':                  latest_news,
         'latest_staffreviews_theatre':  latest_staffreviews_theatre,
         'latest_staffreviews_cinema':   latest_staffreviews_cinema,
