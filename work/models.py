@@ -102,7 +102,7 @@ class StaffReview(models.Model):
     was_published_recently.short_description = 'Published recently?'
 
     def published(self):
-        if draft == False:
+        if self.draft == False:
             return True
         else:
             return False
