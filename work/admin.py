@@ -24,8 +24,8 @@ class StaffReviewAdmin(admin.ModelAdmin):
     list_display = ['work', 'pub_date', 'number_of_words', 'rating', 'author', 'published']
 
     fieldsets = [
-        (None,               {'fields': ['work', 'title', 'body', 'opinion', 'rating', 'draft']}),
-        ('Advanced — Meta Data', {'fields': ['slug', 'pub_date', 'author'], 'classes': ['grp-collapse grp-closed']}),
+        (None,               {'fields': ['work', 'body', 'opinion', 'rating', 'draft']}),
+        ('Advanced — Meta Data', {'fields': ['title', 'slug', 'pub_date', 'author'], 'classes': ['grp-collapse grp-closed']}),
     ]
 
     def save_model(self, request, obj, form, change):
