@@ -77,7 +77,7 @@ class StaffReview(models.Model):
     posted = models.DateField(db_index=True, auto_now_add=True)
     rating = models.IntegerField()
     pub_date = models.DateTimeField(blank=True)
-    author = models.ForeignKey(User, limit_choices_to={'is_staff': True}, null=True, blank=True)
+    author = models.ForeignKey(User, null=True, blank=True)
     work = models.ForeignKey(Work)
     draft = models.BooleanField()
 

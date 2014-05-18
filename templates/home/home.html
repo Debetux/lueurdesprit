@@ -19,9 +19,9 @@
 
 				<div class="panel">
 					<div class="row">
-						{% for work in latest_staffreviews_book %}
+						{% for staffreview in latest_staffreviews_book %}
 								<div class="medium-3 columns">
-									<a href="{% url 'work:work_detail' work.type_of_work.slug|lower work.slug %}"><img style="max-width:160px; max-height:210px" src="{{ work.poster.url }}"></a>
+									<a href="{% url 'work:review_detail' staffreview.work.type_of_work.slug|lower staffreview.work.slug staffreview.id %}"><img style="max-width:160px; max-height:210px" src="{{ staffreview.work.poster.url }}"></a>
 								</div>
 						{% endfor %}
 					</div>
@@ -49,9 +49,9 @@
 
 				<div class="panel">
 					<div class="row">
-						{% for work in latest_staffreviews_cinema %}
+						{% for staffreview in latest_staffreviews_cinema %}
 								<div class="medium-3 columns">
-									<a href="{% url 'work:work_detail' work.type_of_work.slug|lower work.slug %}"><img style="max-width:160px; max-height:210px" src="{{ work.poster.url }}"></a>
+									<a href="{% url 'work:review_detail' staffreview.work.type_of_work.slug|lower staffreview.work.slug staffreview.id %}"><img style="max-width:160px; max-height:210px" src="{{ staffreview.work.poster.url }}"></a>
 								</div>
 						{% endfor %}
 					</div>
@@ -79,9 +79,9 @@
 
 				<div class="panel">
 					<div class="row">
-						{% for work in latest_staffreviews_theatre %}
+						{% for staffreview in latest_staffreviews_theatre %}
 								<div class="medium-3 columns">
-									<a href="{% url 'work:work_detail' work.type_of_work.slug|lower work.slug %}"><img style="max-width:160px; max-height:210px" src="{{ work.poster.url }}"></a>
+									<a href="{% url 'work:review_detail' staffreview.work.type_of_work.slug|lower staffreview.work.slug staffreview.id %}"><img style="max-width:160px; max-height:210px" src="{{ staffreview.work.poster.url }}"></a>
 								</div>
 						{% endfor %}
 					</div>
@@ -109,9 +109,9 @@
 
 				<div class="panel">
 					<div class="row">
-						{% for work in latest_staffreviews_music %}
+						{% for staffreview in latest_staffreviews_music %}
 								<div class="medium-3 columns">
-									<a href="{% url 'work:work_detail' work.type_of_work.slug|lower work.slug %}"><img style="max-width:160px; max-height:210px" src="{{ work.poster.url }}"></a>
+									<a href="{% url 'work:review_detail' staffreview.work.type_of_work.slug|lower staffreview.work.slug staffreview.id %}"><img style="max-width:160px; max-height:210px" src="{{ staffreview.work.poster.url }}"></a>
 								</div>
 						{% endfor %}
 					</div>
