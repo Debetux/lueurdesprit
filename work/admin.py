@@ -21,7 +21,7 @@ class WorkAdmin(admin.ModelAdmin):
         
 
 class StaffReviewAdmin(admin.ModelAdmin):
-    list_display = ['work', 'pub_date', 'number_of_words', 'rating', 'author', 'draft']
+    list_display = ['work', 'pub_date', 'number_of_words', 'rating', 'author', 'published']
 
     fieldsets = [
         (None,               {'fields': ['work', 'title', 'body', 'opinion', 'rating', 'draft']}),
