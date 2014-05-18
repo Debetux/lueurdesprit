@@ -79,7 +79,7 @@
 
 				<div class="panel">
 					<div class="row">
-						{% for work in latest_work_theatre %}
+						{% for work in latest_staffreviews_theatre %}
 								<div class="medium-3 columns">
 									<a href="{% url 'work:work_detail' work.type_of_work.slug|lower work.slug %}"><img style="max-width:160px; max-height:210px" src="{{ work.poster.url }}"></a>
 								</div>
@@ -109,7 +109,7 @@
 
 				<div class="panel">
 					<div class="row">
-						{% for work in latest_work_music %}
+						{% for work in latest_staffreviews_music %}
 								<div class="medium-3 columns">
 									<a href="{% url 'work:work_detail' work.type_of_work.slug|lower work.slug %}"><img style="max-width:160px; max-height:210px" src="{{ work.poster.url }}"></a>
 								</div>
