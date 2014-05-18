@@ -21,7 +21,8 @@ class Category(models.Model):
         super(Category, self).save(*args, **kwargs)
 
     class Meta:
-        verbose_name_plural = 'Categories'
+        verbose_name = 'Catégorie'
+        verbose_name_plural = 'Catégories'
 
 class Entry(models.Model):
     title = models.CharField(max_length=100, unique=True)
@@ -52,4 +53,5 @@ class Entry(models.Model):
         super(Entry, self).save(*args, **kwargs)
 
     class Meta:
-        verbose_name_plural = 'Entries'
+        verbose_name = 'Article'
+        verbose_name_plural = 'Articles'

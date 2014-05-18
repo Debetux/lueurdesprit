@@ -38,7 +38,8 @@ class TypeOfWork(models.Model):
         super(TypeOfWork, self).save(*args, **kwargs)
 
     class Meta:
-        verbose_name_plural = 'Type of works'
+        verbose_name = 'Type d’œuvre'
+        verbose_name_plural = 'Types d’œuvre'
 
 class Work(models.Model):
     title = models.CharField(max_length=100, db_index=True)
@@ -61,6 +62,11 @@ class Work(models.Model):
 
     def __str__(self):
         return self.title
+
+    class Meta:
+        verbose_name = 'Œuvre'
+        verbose_name_plural = 'Œuvres'
+
 
 
 class StaffReview(models.Model):
@@ -104,4 +110,5 @@ class StaffReview(models.Model):
         return ("id__iexact", "title__icontains",)
 
     class Meta:
-        verbose_name_plural = 'Staff Reviews'
+        verbose_name = 'Critique'
+        verbose_name_plural = 'Critiques'
