@@ -101,6 +101,16 @@ class StaffReview(models.Model):
     was_published_recently.boolean = True
     was_published_recently.short_description = 'Published recently?'
 
+    def published(self):
+        if draft == False:
+            return True
+        else:
+            return False
+
+    published.boolean = True
+    published.admin_order_field = 'draft'
+    published.short_description = 'Published ?' 
+
     def number_of_words(self):
 
         return len(self.body.split())
