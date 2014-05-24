@@ -40,7 +40,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'blog',
     'work',
-    'django_comments',
+    #'django_comments',
     'gunicorn'
 )
 
