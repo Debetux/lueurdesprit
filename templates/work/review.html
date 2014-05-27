@@ -30,7 +30,7 @@
 						</div>
 
 						<div class="large-9 columns">
-							<h4>{{ review.title }}</h4>
+							<h4>{% if review.title %}  {{ review.title }} {% else %} {{ review.work.title }} {% endif %}</h4>
 							<p>{{ review.body|safe }}
 								<cite>{{ review.author.first_name }} {{ review.author.last_name|upper }}</cite>
 							</p>
@@ -38,7 +38,16 @@
 
 							<hr>
 							<p>
-							Note de la critique : {{ review.rating }}/5
+							Note de la critique : 
+
+							{% for i in range_five %}
+								{% if staffreview.rating <= i %}
+									<img style="width:30px" src="{% static "img/feather.png" %}">
+								{% else %}
+									<img style="width:30px" src="{% static "img/feather_white.png" %}">
+								{% endif %}
+							{% endfor %}
+							
 							</p>
 
 						</div>

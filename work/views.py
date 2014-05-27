@@ -32,10 +32,10 @@ def review_detail(request, type_of_work, work_slug, staffreview_id):
         review = StaffReview.objects.get(pk=staffreview_id)
     except StaffReview.DoesNotExist:
         raise Http404
-    return render(request, 'work/review.html', {'review': review})
+    return render(request, 'work/review.html', {'review': review, 'range_five':range(0,5)})
     
 def work_list(request, type_of_work):
-    works = Work.objects.filter(type_of_work__slug=type_of_work, staffreview__draft=False)
+    works = Work.objects.filter(type_of_work__slug=type_of_work, staffreview__draft=False).order_by('-pub_date')
 
     return render(request, 'work/work_list.html', {'works':works, 'range_five':range(0,5)})
 
