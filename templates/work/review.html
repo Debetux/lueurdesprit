@@ -42,7 +42,7 @@
 							Note de la critique : 
 
 							{% for i in range_five %}
-								{% if staffreview.rating <= i %}
+								{% if review.rating <= i %}
 									<img style="width:30px" src="{% static "img/feather.png" %}">
 								{% else %}
 									<img style="width:30px" src="{% static "img/feather_white.png" %}">
