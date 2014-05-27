@@ -31,7 +31,7 @@
 						</div>
 
 						<div class="large-9 columns">
-							<h4>{% if review.title %}  {{ review.title }} {% else %} {{ review.work.title }} {% endif %}</h4>
+							<h1>{% if review.title %}  {{ review.title }} {% else %} {{ review.work.title }} {% endif %}</h1>
 							<p>{{ review.body|safe }}
 								<cite>{{ review.author.first_name }} {{ review.author.last_name|upper }}</cite>
 							</p>
@@ -48,7 +48,7 @@
 									<img style="width:30px" src="{% static "img/feather_white.png" %}">
 								{% endif %}
 							{% endfor %}
-							
+
 							</p>
 
 						</div>
