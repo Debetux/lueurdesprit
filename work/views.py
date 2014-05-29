@@ -35,7 +35,7 @@ def review_detail(request, type_of_work, work_slug, staffreview_id):
     return render(request, 'work/review.html', {'review': review, 'range_five':range(0,5)})
     
 def work_list(request, type_of_work):
-    works = Work.objects.filter(type_of_work__slug=type_of_work, staffreview__draft=False).order_by('-pub_date')
+    works = Work.objects.filter(type_of_work__slug=type_of_work, staffreview__draft=False).order_by('-pk')
 
     return render(request, 'work/work_list.html', {'works':works, 'range_five':range(0,5)})
 
